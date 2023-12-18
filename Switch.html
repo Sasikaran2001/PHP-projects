@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php 
+    do {
+    if (isset($_GET['number3']))
+    {
+    $a=$_GET['number1'];
+    $b=$_GET['number2'];
+    $c=$_GET['number3'];
+    $y=$_GET['yes'];
+    switch ($c) {
+        case "+":
+             $d=$a+$b;
+        break;
+        case "-": 
+            $d=$a-$b;
+        break;
+        case "*":
+            $d=$a*$b;
+        break;
+        case "/":
+            $d=$a/$b;
+        break;
+        case "%":
+            $d=$a%$b;
+        break;
+    }
+    }
+}while ($y==="yes");
+    ?>
+    <form method="GET" action="<?=$_SERVER['PHP_SELF']?>">
+        Number 1:<input type="number" name="number1" id="number" value="<?=$a?>"><br>
+        Number 2:<input type="number" name="number2" id="number" value="<?=$b?>"><br><hr>
+        <button type="submit" value="+" name="number3">ADD</button><button type="submit" value="-" name="number3">SUB</button>
+            <button type="submit" value="*" name="number3">MUL</button><button type="submit" value="/" name="number3">DIV</button>
+            <button type="submit" value="%" name="number3">MOD</button><br>
+            <input type="number" value="<?=$d ?>" disabled> 
+        Are you continue this process:<input type="radio" value="yes" name="yes"><input type="radio" value="no" name="no"><br>   
+    </form> 
+</body>
+</html>
